@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
         <title>Burger King - Food Website Template</title>
@@ -36,20 +36,13 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                        <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="feature.html" class="nav-item nav-link">Feature</a>
-                        <a href="team.html" class="nav-item nav-link">Chef</a>
-                        <a href="menu.html" class="nav-item nav-link active">Menu</a>
-                        <a href="booking.html" class="nav-item nav-link">Booking</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu">
-                                <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                                <a href="single.html" class="dropdown-item">Blog Detail</a>
-                            </div>
-                        </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a th:href="@{/home}" class="nav-item nav-link active">Home</a>
+                        <a th:href="@{/feature}" class="nav-item nav-link">Feature</a>
+                        <a th:href="@{/chefs}" class="nav-item nav-link">Chef</a>
+                        <a th:href="@{/menu}" class="nav-item nav-link">Menu</a>
+                        <a th:href="@{/booking}" class="nav-item nav-link">Booking</a>
+                        <a th:href="@{/contact}" class="nav-item nav-link">Contact</a>
+                        <a href="#" class="nav-item nav-link">Login</a>
                     </div>
                 </div>
             </div>
@@ -65,8 +58,8 @@
                         <h2>Food Menu</h2>
                     </div>
                     <div class="col-12">
-                        <a href="">Home</a>
-                        <a href="">Menu</a>
+                        <a th:href="@{/home}">Home</a>
+                        <a th:href="@{/menu}">Menu</a>
                     </div>
                 </div>
             </div>
@@ -82,30 +75,24 @@
                         <div class="food-item">
                             <i class="flaticon-burger"></i>
                             <h2>Burgers</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem. 
-                            </p>
-                            <a href="">View Menu</a>
+                            <p>The best burgers are like life — messy and topped with bacon</p>
+                            <a href="#burgers">View Menu</a>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="food-item">
                             <i class="flaticon-snack"></i>
                             <h2>Snacks</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem. 
-                            </p>
-                            <a href="">View Menu</a>
+                            <p>The road to enlightenment is long and difficult, you should not forget snacks </p>
+                            <a href="#snacks">View Menu</a>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="food-item">
                             <i class="flaticon-cocktail"></i>
                             <h2>Beverages</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem. 
-                            </p>
-                            <a href="">View Menu</a>
+                            <p>The spirit of a fresh beverage is one of peace, comfort, and refinement</p>
+                            <a href="#beverages">View Menu</a>
                         </div>
                     </div>
                 </div>
@@ -143,7 +130,6 @@
                                         </div>
                                         <div class="menu-text">
                                             <h3><span>Mini cheese Burger</span> <strong>$9.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
                                         </div>
                                     </div>
                                     <div class="menu-item">
@@ -152,7 +138,6 @@
                                         </div>
                                         <div class="menu-text">
                                             <h3><span>Double size burger</span> <strong>$11.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
                                         </div>
                                     </div>
                                     <div class="menu-item">
@@ -161,7 +146,6 @@
                                         </div>
                                         <div class="menu-text">
                                             <h3><span>Bacon, EGG and Cheese</span> <strong>$13.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
                                         </div>
                                     </div>
                                     <div class="menu-item">
@@ -170,7 +154,6 @@
                                         </div>
                                         <div class="menu-text">
                                             <h3><span>Pulled porx Burger</span> <strong>$18.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
                                         </div>
                                     </div>
                                     <div class="menu-item">
@@ -179,7 +162,6 @@
                                         </div>
                                         <div class="menu-text">
                                             <h3><span>Fried chicken Burger</span> <strong>$22.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
                                         </div>
                                     </div>
                                 </div>
@@ -197,7 +179,6 @@
                                         </div>
                                         <div class="menu-text">
                                             <h3><span>Corn Tikki - Spicy fried Aloo</span> <strong>$15.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
                                         </div>
                                     </div>
                                     <div class="menu-item">
@@ -206,7 +187,6 @@
                                         </div>
                                         <div class="menu-text">
                                             <h3><span>Bread besan Toast</span> <strong>$35.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
                                         </div>
                                     </div>
                                     <div class="menu-item">
@@ -215,7 +195,6 @@
                                         </div>
                                         <div class="menu-text">
                                             <h3><span>Healthy soya nugget snacks</span> <strong>$20.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
                                         </div>
                                     </div>
                                     <div class="menu-item">
@@ -224,7 +203,14 @@
                                         </div>
                                         <div class="menu-text">
                                             <h3><span>Tandoori Soya Chunks</span> <strong>$30.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                                        </div>
+                                    </div>
+                                    <div class="menu-item">
+                                        <div class="menu-img">
+                                            <img src="img/menu-snack.jpg" alt="Image">
+                                        </div>
+                                        <div class="menu-text">
+                                            <h3><span>Salsa de Mallorca</span> <strong>$30.00</strong></h3>
                                         </div>
                                     </div>
                                 </div>
@@ -242,7 +228,6 @@
                                         </div>
                                         <div class="menu-text">
                                             <h3><span>Single Cup Brew</span> <strong>$7.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
                                         </div>
                                     </div>
                                     <div class="menu-item">
@@ -251,7 +236,6 @@
                                         </div>
                                         <div class="menu-text">
                                             <h3><span>Caffe Americano</span> <strong>$9.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
                                         </div>
                                     </div>
                                     <div class="menu-item">
@@ -260,7 +244,6 @@
                                         </div>
                                         <div class="menu-text">
                                             <h3><span>Caramel Macchiato</span> <strong>$15.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
                                         </div>
                                     </div>
                                     <div class="menu-item">
@@ -269,7 +252,6 @@
                                         </div>
                                         <div class="menu-text">
                                             <h3><span>Standard black coffee</span> <strong>$8.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
                                         </div>
                                     </div>
                                     <div class="menu-item">
@@ -278,7 +260,6 @@
                                         </div>
                                         <div class="menu-text">
                                             <h3><span>Standard black coffee</span> <strong>$12.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
                                         </div>
                                     </div>
                                 </div>
@@ -303,15 +284,15 @@
                             <div class="col-md-6">
                                 <div class="footer-contact">
                                     <h2>Our Address</h2>
-                                    <p><i class="fa fa-map-marker-alt"></i>123 Street, New York, USA</p>
-                                    <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
-                                    <p><i class="fa fa-envelope"></i>info@example.com</p>
+                                    <p><i class="fa fa-map-marker-alt"></i>Bulevardul Iancu de Hunedoara nr. 48, Bucharest, Romania</p>
+                                    <p><i class="fa fa-phone-alt"></i>+40 755 340 389</p>
+                                    <p><i class="fa fa-envelope"></i>mkt_ro@epam.com</p>
                                     <div class="footer-social">
-                                        <a href=""><i class="fab fa-twitter"></i></a>
-                                        <a href=""><i class="fab fa-facebook-f"></i></a>
-                                        <a href=""><i class="fab fa-youtube"></i></a>
-                                        <a href=""><i class="fab fa-instagram"></i></a>
-                                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                        <a href="https://twitter.com/EPAMSystems?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
+                                        <a href="https://www.facebook.com/EPAM.Romania/about"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="https://www.youtube.com/user/epampress"><i class="fab fa-youtube"></i></a>
+                                        <a href="https://www.instagram.com/epamsystems/?hl=en"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://www.linkedin.com/company/epam-systems"><i class="fab fa-linkedin-in"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -330,21 +311,13 @@
                     <div class="col-lg-5">
                         <div class="footer-newsletter">
                             <h2>Newsletter</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Quisque eu lectus a leo dictum nec non quam. Tortor eu placerat rhoncus, lorem quam iaculis felis, sed lacus neque id eros.
-                            </p>
+                            <p>Subscribe to our newsletter to get in touch with our promotions and food parties!</p>
                             <div class="form">
                                 <input class="form-control" placeholder="Email goes here">
                                 <button class="btn custom-btn">Submit</button>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <div class="container">
-                    <p>Copyright &copy; <a href="#">Your Site Name</a>, All Right Reserved.</p>
-                    <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
                 </div>
             </div>
         </div>
