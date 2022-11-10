@@ -515,6 +515,28 @@ a:focus {
 
 .booking .booking-form select.form-control {
     padding: 0 10px;
+    background: #fbaf32;
+    color: #fff;
+}
+
+select option[value="1"] {
+  background: rgba(100, 100, 100, 0.3);
+}
+
+select option[value="2"] {
+  background: rgba(100, 100, 100, 0.3);
+}
+
+select option[value="3"] {
+  background: rgba(100, 100, 100, 0.3);
+}
+
+select option[value="4"] {
+  background: rgba(100, 100, 100, 0.3);
+}
+
+select option[value="5"] {
+  background: rgba(100, 100, 100, 0.3);
 }
 
 .booking .booking-form .form-control::placeholder {
