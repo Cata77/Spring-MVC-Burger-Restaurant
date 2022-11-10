@@ -9,7 +9,7 @@ import java.util.Objects;
 
 @Entity
 @Service
-@Table(name = "Bookings")
+@Table(name = "bookings")
 public class BookingAppointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,19 +20,20 @@ public class BookingAppointment {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
     private String time;
-    private int guestsNumber;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Order order;
 
     public BookingAppointment() {
     }
 
-    public BookingAppointment(Integer id, String name, String email, String phoneNumber, Date date, String time, int guestsNumber) {
+    public BookingAppointment(Integer id, String name, String email, String phoneNumber, Date date, String time, Order order) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.date = date;
         this.time = time;
-        this.guestsNumber = guestsNumber;
+        this.order = order;
     }
 
     public Integer getId() {
@@ -83,12 +84,12 @@ public class BookingAppointment {
         this.time = time;
     }
 
-    public int getGuestsNumber() {
-        return guestsNumber;
+    public Order getOrder() {
+        return order;
     }
 
-    public void setGuestsNumber(int guestsNumber) {
-        this.guestsNumber = guestsNumber;
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     @Override
@@ -96,12 +97,12 @@ public class BookingAppointment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BookingAppointment that = (BookingAppointment) o;
-        return guestsNumber == that.guestsNumber && Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(email, that.email) && Objects.equals(phoneNumber, that.phoneNumber) && Objects.equals(date, that.date) && Objects.equals(time, that.time);
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(email, that.email) && Objects.equals(phoneNumber, that.phoneNumber) && Objects.equals(date, that.date) && Objects.equals(time, that.time) && Objects.equals(order, that.order);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, email, phoneNumber, date, time, guestsNumber);
+        return Objects.hash(id, name, email, phoneNumber, date, time, order);
     }
 
     @Override
@@ -112,8 +113,8 @@ public class BookingAppointment {
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", date=" + date +
-                ", time=" + time +
-                ", guestsNumber=" + guestsNumber +
+                ", time='" + time + '\'' +
+                ", order=" + order +
                 '}';
     }
 }

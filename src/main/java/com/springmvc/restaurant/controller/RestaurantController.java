@@ -2,6 +2,7 @@ package com.springmvc.restaurant.controller;
 
 import com.springmvc.restaurant.model.BookingAppointment;
 import com.springmvc.restaurant.repository.BookingRepository;
+import com.springmvc.restaurant.service.BookingService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,11 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class RestaurantController {
-    private BookingAppointment booking;
+    private BookingService service;
     private BookingRepository bookingRepository;
 
-    public RestaurantController(BookingAppointment booking, BookingRepository bookingRepository) {
-        this.booking = booking;
+    public RestaurantController(BookingService service, BookingRepository bookingRepository) {
+        this.service = service;
         this.bookingRepository = bookingRepository;
     }
 
@@ -41,6 +42,9 @@ public class RestaurantController {
     @GetMapping("/booking")
     public String getBookingPage(Model model) {
         model.addAttribute("bookings", new BookingAppointment());
+        model.addAttribute("burgers", service.getBurgerList());
+        model.addAttribute("snacks", service.getSnackList());
+        model.addAttribute("drinks", service.getDrinkList());
         return "booking";
     }
     @PostMapping("/booking")

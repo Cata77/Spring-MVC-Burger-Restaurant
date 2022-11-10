@@ -124,23 +124,35 @@
                                 <div class="control-group">
                                     <div class="input-group time" id="time" data-target-input="nearest">
                                         <input type="time" th:field="*{time}" class="form-control datetimepicker-input" placeholder="Time"/>
-
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="input-group">
-                                        <select class="custom-select form-control" th:field="*{guestsNumber}">
-                                            <option value="0">0</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
+                                        <select class="custom-select form-control" th:field="*{order.burger}">
+                                            <option value="0">Select a burger</option>
+                                            <option th:each="burger : ${burgers}" th:value="${burger}" th:text="${burger}"></option>
+                                        </select>
+                                        <div class="input-group-append">
+                                            <div class="input-group-text"><i class="fa fa-chevron-down"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="input-group">
+                                        <select class="custom-select form-control" th:field="*{order.snack}">
+                                            <option value="0">Select a snack</option>
+                                            <option th:each="snack : ${snacks}" th:value="${snack}" th:text="${snack}"></option>
+                                        </select>
+                                        <div class="input-group-append">
+                                            <div class="input-group-text"><i class="fa fa-chevron-down"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="input-group">
+                                        <select class="custom-select form-control" th:field="*{order.drink}">
+                                            <option value="0">Select a drink</option>
+                                            <option th:each="drink : ${drinks}" th:value="${drink}" th:text="${drink}"></option>
                                         </select>
                                         <div class="input-group-append">
                                             <div class="input-group-text"><i class="fa fa-chevron-down"></i></div>
