@@ -91,7 +91,8 @@
                             <form id="form" action="#" method="post" th:action="@{/booking}" th:object="${bookings}">
                                 <div class="control-group">
                                     <div class="input-group">
-                                        <input type="text" th:field="*{name}" class="form-control" placeholder="Name" required="required" />
+                                        <input type="text" th:field="*{name}" class="form-control" placeholder="Name" required="required"/>
+
                                         <div class="input-group-append">
                                             <div class="input-group-text"><i class="far fa-user"></i></div>
                                         </div>
@@ -115,20 +116,20 @@
                                 </div>
                                 <div class="control-group">
                                     <div class="input-group date" id="date" data-target-input="nearest">
-                                        <input type="date" th:field="*{date}" class="form-control datetimepicker-input" placeholder="Date"/>
+                                        <input type="date" th:field="*{date}" class="form-control datetimepicker-input" placeholder="Date" required="required"/>
                                         <div class="input-group-append">
-                                            <div class="input-group-text"></i></div>
+                                            <div class="input-group-text"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="input-group time" id="time" data-target-input="nearest">
-                                        <input type="time" th:field="*{time}" class="form-control datetimepicker-input" placeholder="Time"/>
+                                        <input type="time" th:field="*{time}" class="form-control datetimepicker-input" placeholder="Time" required/>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="input-group">
-                                        <select class="custom-select form-control" th:field="*{order.burger}">
+                                        <select class="custom-select form-control" th:field="*{order.burger}" required="required">
                                             <option value="0">Select a burger</option>
                                             <option th:each="burger : ${burgers}" th:value="${burger}" th:text="${burger}"></option>
                                         </select>
@@ -161,7 +162,12 @@
                                 </div>
                                 <div>
                                     <input type="submit" value="Book Now" class="btn custom-btn"><br><br>
-                                    <input type="reset" value="Clear" class="btn custom-btn">
+                                    <input type="reset" value="Clear" class="btn custom-btn"><br><br>
+                                </div>
+                                <div class="error-group" th:if="${#fields.hasAnyErrors()}">
+                                    <ul>
+                                        <li th:each="err : ${#fields.allErrors()}" th:text="${err}" />
+                                    </ul>
                                 </div>
                             </form>
                         </div>

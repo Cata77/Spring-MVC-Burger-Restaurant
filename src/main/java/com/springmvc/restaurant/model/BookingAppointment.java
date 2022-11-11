@@ -4,6 +4,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.Objects;
 
@@ -14,8 +18,13 @@ public class BookingAppointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Size(min = 2, max = 10, message = "The length of the name must be between 2 and 10")
     private String name;
+    @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}",
+            flags = Pattern.Flag.CASE_INSENSITIVE,
+            message = "Please provide a valid email address")
     private String email;
+    @Size(min = 10, max = 10, message = "The length of the phone number must be 10")
     private String phoneNumber;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;

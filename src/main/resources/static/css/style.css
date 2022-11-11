@@ -569,6 +569,11 @@ select option[value="5"] {
     filter: invert(1);
 }
 
+.booking .error-group {
+    margin: 10px;
+    position: left;
+    color: #000000;
+}
 
 /*******************************/
 /********** Menu CSS ***********/
