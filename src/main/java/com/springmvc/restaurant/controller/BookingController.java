@@ -1,9 +1,7 @@
 package com.springmvc.restaurant.controller;
 
 import com.springmvc.restaurant.model.BookingAppointment;
-import com.springmvc.restaurant.model.Contact;
 import com.springmvc.restaurant.repository.BookingRepository;
-import com.springmvc.restaurant.repository.ContactRepository;
 import com.springmvc.restaurant.service.BookingService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,35 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 
 @Controller
-public class RestaurantController {
+public class BookingController {
     private BookingService service;
-    private BookingRepository bookingRepository;
-    private ContactRepository contactRepository;
+    private BookingRepository repository;
 
-    public RestaurantController(BookingService service, BookingRepository bookingRepository, ContactRepository contactRepository) {
+    public BookingController(BookingService service, BookingRepository repository) {
         this.service = service;
-        this.bookingRepository = bookingRepository;
-        this.contactRepository = contactRepository;
-    }
-
-    @GetMapping("/home")
-    public String getHomePage() {
-        return "index";
-    }
-
-    @GetMapping("/feature")
-    public String getFeaturePage() {
-        return "feature";
-    }
-
-    @GetMapping("/chefs")
-    public String getChefsPage() {
-        return "chefs";
-    }
-
-    @GetMapping("/menu")
-    public String getMenuPage() {
-        return "menu";
+        this.repository = repository;
     }
 
     @GetMapping("/booking")
@@ -63,22 +39,8 @@ public class RestaurantController {
             model.addAttribute("drinks", service.getDrinkList());
             return "booking";
         }
-        bookingRepository.save(booking);
+        repository.save(booking);
         System.out.println(booking);
         return "booking";
     }
-
-    @GetMapping("/contact")
-    public String getContactPage(Model model) {
-        model.addAttribute("contacts", new Contact());
-        return "contact";
-    }
-
-    @PostMapping("/contact")
-    public String postContactForm(@ModelAttribute("contacts") Contact contact) {
-        contactRepository.save(contact);
-        System.out.println(contact);
-        return "contact";
-    }
-
 }
